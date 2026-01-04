@@ -19,8 +19,8 @@ int main() {
     }
 
     // 3. 在目標程序分配記憶體，寫入 DLL 路徑
-    // dllpath為指定的dll檔位置
-    const char* dllPath = "C:\\Users\\AOI\\source\\repos\\hook_program\\x64\\Debug\\hook_program.dll";
+    // dllpath為指定的dll檔位置的絕對位置
+    const char* dllPath = "D:\\hook_program.dll";
     void* pRemoteBuf = VirtualAllocEx(hProcess, NULL, strlen(dllPath) + 1,
         MEM_COMMIT, PAGE_READWRITE);
     WriteProcessMemory(hProcess, pRemoteBuf, dllPath, strlen(dllPath) + 1, NULL);
@@ -41,4 +41,5 @@ int main() {
 
     std::cout << "DLL 注入完成\n";
     return 0;
+
 }
